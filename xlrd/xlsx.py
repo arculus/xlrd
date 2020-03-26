@@ -36,13 +36,13 @@ def ensure_elementtree_imported(verbosity, logfile):
         #### 2.7.2.1: fails later with
         #### NotImplementedError: iterparse is not supported on IronPython. (CP #31923)
     else:
-        try: import defusedxml.cElementTree as ET
+        try: import lxml.etree as ET
         except ImportError:
             try: import xml.etree.cElementTree as ET
             except ImportError:
                 try: import cElementTree as ET
                 except ImportError:
-                    try: import lxml.etree as ET
+                    try: import defusedxml.cElementTree as ET
                     except ImportError:
                         try: import xml.etree.ElementTree as ET
                         except ImportError:
